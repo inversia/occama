@@ -393,12 +393,12 @@ h3 {
 
         .scroller-prev {
             left:2vw;
-            background-image:url(/art/prev.svg);
+            background-image:url(./art/prev.svg);
         }
 
         .scroller-next {
             right:2vw;
-            background-image:url(/art/prev.svg);
+            background-image:url(./art/prev.svg);
             transform:scale(-1,1);
             
         }
