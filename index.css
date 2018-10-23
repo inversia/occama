@@ -443,10 +443,17 @@ h3 {
             }
 
             .scroller .item .text {
-/*               background: #0000004d; */
                 color: #fefcf7;
-                font-size: 3vw;
                 position: absolute;
+                text-align:center;
+                font-size: 5vw;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                display:flex;
+                align-items:center;
+                justify-content:center;
             }
 
     
@@ -559,20 +566,20 @@ h3 {
             }
 
 
-.scroller {
-    height: 80vw;
-    width:90vw;
-    margin-left:5vw;
-}
-
-    .scroller .item .text {
-        text-align:center;
-        font-size:10vw;
-        padding:0vw 8vw;
-        top:32vw;
-        color:#607D8B;
-        color:#fbfbf6;
-        color:#607D8B;
+    .scroller {
+        height: 80vw;
+        width:90vw;
+        margin-left:5vw;
     }
+
+        .scroller .item .text {
+            text-align:center;
+            font-size:10vw;
+            padding: 0 5vw;
+            top: 0.5em;
+            color:#607D8B;
+            color:#fbfbf6;
+            color:#607D8B;
+        }
 
 }
