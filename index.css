@@ -176,8 +176,9 @@ h3 {
     background-size:cover;
     /*background-position:0vw -9vw;*/
     background-attachment:fixed;
-    width:100vw;
+    width:90vw;
     height:42vw;
+    margin-left:5vw;
     box-shadow: inset 0px 60px 140px rgba(0, 0, 0, 0.83);
     border-radius:50%;
     transform:translate3d(0,0,0);
@@ -189,10 +190,10 @@ h3 {
         top:40%;
         animation: story-appear 0.4s ease-in-out;
         animation-fill-mode:forwards;
-        animation-delay: 1.5s;
+        animation-delay: 3.5s;
         opacity:0;
         letter-spacing:0.07em;
-        text-shadow: 2px 2px 9px #000000;
+        text-shadow: 1vw 0.5vw 5vw #000000;
     }
 
 
@@ -273,6 +274,7 @@ h3 {
     .price h1 {
         color:black;
         margin-top:6vw;
+        margin-bottom:10vw;
     }
 
     .price h2 {
@@ -454,7 +456,7 @@ h3 {
                 display:flex;
                 align-items:center;
                 justify-content:center;
-                text-shadow:2px 0px 45px #050000;
+                text-shadow: 0vw 0vw 9vw #000000;
             }
 
     
@@ -487,6 +489,7 @@ h3 {
    
     .intro {
         background-size:100%;
+        background-size:cover;
         height:72vw;
         box-shadow: inset 0px 60px 140px rgba(0, 0, 0, 0.15);
         background-attachment:scroll;
