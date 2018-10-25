@@ -102,10 +102,19 @@ document.addEventListener ('DOMContentLoaded', () => {
 
     next.onclick = () => {
 
-      inner.scrollBy ({
-        left: inner.offsetWidth,
-        behavior: 'smooth'
-      })
+      const pagesLeft = ((inner.scrollWidth - inner.scrollLeft) / inner.offsetWidth)
+      
+      if (pagesLeft < 1.2) {
+            inner.scrollTo ({
+                left: 0,
+                behavior: 'smooth'
+            })
+      } else {
+          inner.scrollBy ({
+            left: inner.offsetWidth,
+            behavior: 'smooth'
+          })
+      }
     }
   }
 
