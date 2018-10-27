@@ -30,58 +30,54 @@ function element (tag, { className = '', innerText = '', style = {}, children = 
     return el
 }
 
-document.addEventListener ('DOMContentLoaded', () => {
-    
-    const title = $('h1')
-
-    const letters = [...title.innerText].map ((letter, i) => element ('span', {
-                                                                style: { animationDelay: i * 0.15 + 's' },
-                                                                innerText: letter
-                                                             }))
-    title.innerText = ''
-
-    for (const span of letters) title.appendChild (span)
-})
-
-//document.referrer   - для touch устройств команда
-
 // document.addEventListener ('DOMContentLoaded', () => {
     
+//     const title = $('h1')
 
-//     const left     = document.querySelector ('.left')
-//     const right    = document.querySelector ('.right')
-//     const scroller = document.querySelector ('.carousel .scroller')
-//     const items    = scroller.querySelectorAll ('.item')
+//     const letters = [...title.innerText].map ((letter, i) => element ('span', {
+//                                                                 style: { animationDelay: i * 0.15 + 's' },
+//                                                                 innerText: letter
+//                                                              }))
+//     title.innerText = ''
 
-//     let currentIndex = 0 // индекс текущего элемента
-
-//     function loopNumber (i, length) { // «зацикливает» число в диапазоне 0...length
-//       return (length + (i % length)) % length
-//     }
-
-//     left.onclick = function () {
-
-//       const prevIndex = loopNumber (currentIndex - 1, items.length) // индекс предыдущего элемента
-
-//       items[currentIndex].style.animationName = 'slide-to-right'
-//       items[prevIndex]   .style.animationName = 'slide-from-left'
-
-//       currentIndex = prevIndex
-//     }
-
-//     right.onclick = function () {
-
-//       const nextIndex = loopNumber (currentIndex + 1, items.length) // индекс следующего элемента
-
-//       // включаем нужные анимации (текущий уезжает налево, следующий выезжает справа)
-
-//       items[currentIndex].style.animationName = 'slide-to-left'
-//       items[nextIndex]   .style.animationName = 'slide-from-right'
-
-//       currentIndex = nextIndex // меняем индекс текущего элемента
-//     }
-
+//     for (const span of letters) title.appendChild (span)
 // })
+
+
+const currentPage = x => Math.floor((x.scrollLeft + x.offsetWidth) / x.offsetWidth)
+
+
+// const numPages = Math.floor(cost.scrollWidth / cost.offsetWidth)
+
+function scrollTo(hash) {
+
+    const target = document.querySelector(hash)
+    
+    target.scrollIntoView({
+        
+        behavior: 'smooth',
+        block: 'start'
+    })
+}
+
+document.addEventListener ('DOMContentLoaded', () => {          // код выполняющийся после загрузки DOM-дерева (содержимого document.body)
+
+    for (const link of document.querySelectorAll ('.link')) {   // для каждого элемента с селектором .link
+
+        link.addEventListener ('click', x => {
+
+            const href = link.getAttribute('href')              // <a href="/#services"> → /#services
+            const hash = href.replace('/', '')                  // /#services → #services
+
+            if (document.querySelector(hash)) {                 // есть ли на странице элемент отзывающийся на селектор #services
+                history.pushState(null, null, hash)             // заменяем в адресной строке адрес на /#services (но так, чтобы страница не прыгала к этому элементу)
+                scrollTo(hash)                                  // плавно прокручиваем страницу к #services
+                x.preventDefault()                              // предотвращаем дефолтное поведение клика на ссылку (чтобы страница не прыгала к #services)
+            }
+        })
+    }
+})
+
 
 
 document.addEventListener ('DOMContentLoaded', () => {
@@ -117,5 +113,35 @@ document.addEventListener ('DOMContentLoaded', () => {
       }
     }
   }
+
+})
+
+document.addEventListener ('DOMContentLoaded', () => {
+
+    const man = $('.m')
+    const woman = $('.w')
+    const cost = $('.cost')
+
+    man.onclick = () => {
+
+        if(cost.scrollLeft > cost.offsetWidth * 0.2){
+            
+            cost.scrollTo({
+                left:0,
+                behavior: 'smooth'
+            })
+        }
+    }
+
+    woman.onclick = () => {
+        
+        if(cost.scrollLeft < cost.offsetWidth * 0.6){
+            
+            cost.scrollTo({
+                left:cost.offsetWidth,
+                behavior: 'smooth'
+            })
+        }        
+    }
 
 })
