@@ -158,13 +158,14 @@ document.addEventListener ('DOMContentLoaded', () => {
 
 window.addEventListener ('scroll', () => {
 
-    const intro = $('.intro')
+    const introh1 = $('.intro h1')
 
     if (window.scrollY > 900) {
         
-//         intro.style.backgroundColor = 'red'
-
-//         alert('YOBA!')
-
+        introh1.style.opacity = '1'       
+        introh1.style.animation = 'story-appear 0.4s ease-in-out'
+    } else {
+        introh1.style.opacity = '0'
+        introh1.style.animation = 'none'
     }
 })
