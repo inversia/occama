@@ -1,6 +1,5 @@
 'use strict'
 
-
 document.addEventListener ('DOMContentLoaded', () => {
 
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|CriOS/i.test(navigator.userAgent)
@@ -12,48 +11,32 @@ document.addEventListener ('DOMContentLoaded', () => {
 })
 
 const { keys, values, entries, assign } = Object
-
 const $  = document.querySelector.bind (document)
 const $$ = document.querySelectorAll.bind (document)
 
-function element (tag, { className = '', innerText = '', style = {}, children = [] } = {}) {
+// function element (tag, { className = '', innerText = '', style = {}, children = [] } = {}) {
     
-    const el = document.createElement (tag)
+//     const el = document.createElement (tag)
 
-    el.className = className
-    el.innerText = innerText
+//     el.className = className
+//     el.innerText = innerText
 
-    assign (el.style, style)
+//     assign (el.style, style)
 
-    for (const child of children) el.appendChild (child)
+//     for (const child of children) el.appendChild (child)
 
-    return el
-}
-
-// document.addEventListener ('DOMContentLoaded', () => {
-    
-//     const title = $('h1')
-
-//     const letters = [...title.innerText].map ((letter, i) => element ('span', {
-//                                                                 style: { animationDelay: i * 0.15 + 's' },
-//                                                                 innerText: letter
-//                                                              }))
-//     title.innerText = ''
-
-//     for (const span of letters) title.appendChild (span)
-// })
-
+//     return el
+// }
 
 const currentPage = x => Math.floor((x.scrollLeft + x.offsetWidth) / x.offsetWidth)
 
-
 // const numPages = Math.floor(cost.scrollWidth / cost.offsetWidth)
 
-function scrollTo(hash) {
+function scrollTo (hash) {
 
-    const target = document.querySelector(hash)
+    const target = document.querySelector (hash)
     
-    target.scrollIntoView({
+    target.scrollIntoView ({
         
         behavior: 'smooth',
         block: 'start'
@@ -66,19 +49,17 @@ document.addEventListener ('DOMContentLoaded', () => {          // код вып
 
         link.addEventListener ('click', x => {
 
-            const href = link.getAttribute('href')              // <a href="/#services"> → /#services
-            const hash = href.replace('/', '')                  // /#services → #services
+            const href = link.getAttribute ('href')              // <a href="/#services"> → /#services
+            const hash = href.replace ('/', '')                  // /#services → #services
 
-            if (document.querySelector(hash)) {                 // есть ли на странице элемент отзывающийся на селектор #services
-                history.pushState(null, null, hash)             // заменяем в адресной строке адрес на /#services (но так, чтобы страница не прыгала к этому элементу)
-                scrollTo(hash)                                  // плавно прокручиваем страницу к #services
-                x.preventDefault()                              // предотвращаем дефолтное поведение клика на ссылку (чтобы страница не прыгала к #services)
+            if (document.querySelector (hash)) {                 // есть ли на странице элемент отзывающийся на селектор #services
+                history.pushState (null, null, hash)             // заменяем в адресной строке адрес на /#services (но так, чтобы страница не прыгала к этому элементу)
+                scrollTo (hash)                                  // плавно прокручиваем страницу к #services
+                x.preventDefault ()                              // предотвращаем дефолтное поведение клика на ссылку (чтобы страница не прыгала к #services)
             }
         })
     }
 })
-
-
 
 document.addEventListener ('DOMContentLoaded', () => {
 
@@ -118,16 +99,16 @@ document.addEventListener ('DOMContentLoaded', () => {
 
 document.addEventListener ('DOMContentLoaded', () => {
 
-    const man = $('.m')
+    const man   = $('.m')
     const woman = $('.w')
-    const cost = $('.cost')
+    const cost  = $('.cost')
 
     man.onclick = () => {
 
-        if(cost.scrollLeft > cost.offsetWidth * 0.2){
+        if (cost.scrollLeft > cost.offsetWidth * 0.2) {
             
-            cost.scrollTo({
-                left:0,
+            cost.scrollTo ({
+                left: 0,
                 behavior: 'smooth'
             })
         }
@@ -135,13 +116,55 @@ document.addEventListener ('DOMContentLoaded', () => {
 
     woman.onclick = () => {
         
-        if(cost.scrollLeft < cost.offsetWidth * 0.6){
+        if (cost.scrollLeft < cost.offsetWidth * 0.6) {
             
-            cost.scrollTo({
-                left:cost.offsetWidth,
+            cost.scrollTo ({
+                left: cost.offsetWidth,
                 behavior: 'smooth'
             })
         }        
     }
 
+    woman.onclick ()
+})
+
+document.addEventListener ('DOMContentLoaded', () => {
+
+    const items = $$('.range .item')
+
+    for (const item of items) {
+
+        item.onclick = function () {
+
+            for (const otherItem of items) {
+                otherItem.classList.toggle ('active', item === otherItem)
+
+            }
+
+    for (const li of $$('.page woman li')) {
+        
+        li.dataset[item.dataset.size]
+//         li.style.display = price ? '' : 'none'
+
+    }
+           
+
+//             li.style.display = price ? '' : 'none'
+//             li.innerText     = price + ' р.'
+        }
+    }
+})
+
+
+window.addEventListener ('scroll', () => {
+
+    const intro = $('.intro')
+
+    if (window.scrollY > 900) {
+        
+//         intro.style.backgroundColor = 'red'
+
+//         alert('YOBA!')
+
+    }
 })
