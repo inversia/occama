@@ -140,7 +140,7 @@ h3 {
         margin:0 2.5em;
         transition: all 0.25s ease-in-out;
         animation-fill-mode: forwards;
-
+        transform:scale(1);
     }
 
     .menu a:hover {
@@ -172,21 +172,29 @@ h3 {
     box-shadow: inset 0px 60px 140px rgba(0, 0, 0, 0.83);
     border-radius:50%;
     transform:translate3d(0,0,0);
+    position:relative;
+    z-index:4;
 
 }
 
     .intro h1 {
-        top:35%;
+        top:37%;
         animation-fill-mode:forwards;
         animation-delay: 0.5s;
         opacity:0;
         letter-spacing:0.07em;
-        text-shadow: 0vw 0vw 0.2vw #000000db;
+/*         text-shadow: 0vw 0vw 0.4vw #000000db; */
+        text-shadow: 0vw 0vw 0.4vw #ffffffdb;
         text-transform:none;
-        padding:0vw 5vw;
+        padding:2vw 7vw;
+/*         background-color:#07191878; */
+        background-color:#fefcf7eb;
         text-align:center;
-        
-
+/*         color:#fefcf7; */
+        color:black;
+        font-size:2vw; 
+        border-radius:180% 180% 390% 390%;
+        z-index:-1000000;
     }
 
 
@@ -256,19 +264,20 @@ h3 {
             box-shadow: inset 0px 20px 150px rgba(0, 0, 0, 0.56);
         }
 
-.price {
-    height:100%;
+.prices {
+    /* height:100%; */
     background-color:#fefcf7;
     text-align:center;
-    padding-bottom:5.2vw;   
+    padding-bottom:5.2vw;
     border-radius:100% 100% 0 0;
-/*     box-shadow: inset 0px 60px 140px rgba(0, 0, 0, 0.83); */
+    /*     box-shadow: inset 0px 60px 140px rgba(0, 0, 0, 0.83); */
 }
 
-    .price h1 {
+    .prices h1 {
         color:black;
         margin-top:7.4vw;
         font-size:5vw;
+        padding-top:13vw;
     }
 
 .info-bar {
@@ -277,6 +286,7 @@ h3 {
     display:flex;
     font-family:Rotis;
     cursor:pointer;
+    margin-top:1.5vw;
 }
 
 
@@ -503,16 +513,32 @@ h3 {
             padding-top:10vw;
         }
 
-        .cost .page li {
-            color:#fefcf7;
-            text-align:center;
-            font-size:3vw;
-            padding:0.5em 0em;
-        }
+            .cost .page li {
+                color:#fefcf7;
+                text-align:center;
+                font-size:3vw;
+                padding:0.5em 0em;
+            }
 
-        .cost .page.woman li {
-            color: black;
-        }
+                .cost .page li .price {
+                    display:block;
+/*                     color:#379a89; */
+                    padding-top:1em;
+                }
+
+                    .cost .page li .price:after {
+                        content: ' р.'
+                    }
+
+            .cost .page.woman li {
+                color: black;
+            }
+
+            .cost .page.woman span {
+                padding-bottom:1.1em;
+            }
+
+
 
     .cost .man {
         height:100%;
@@ -573,7 +599,7 @@ h3 {
         }
 
     .range .item.active {
-        color:white;
+        color:#fefcf7;
     }
 
         .range .item.active:before {
@@ -686,13 +712,9 @@ h3 {
             transition: opacity 1.1s ease-out;
         }
 
-    .price h1 {
+    .prices h1 {
         margin-top:15vw;
         font-size:9.7vw;
-    }
-
-    .price li {
-        font-size:5.7vw;
     }
     
     .info-bar {

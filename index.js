@@ -141,26 +141,27 @@ document.addEventListener ('DOMContentLoaded', () => {
 
             }
 
-    for (const li of $$('.page woman li')) {
-        
-        li.dataset[item.dataset.size]
-//         li.style.display = price ? '' : 'none'
+            for (const price of $$('.page.woman li .price')) {
 
-    }
-           
+                price.innerText = price.dataset[item.dataset.size]
+            }
+
 
 //             li.style.display = price ? '' : 'none'
 //             li.innerText     = price + ' р.'
         }
     }
+
+    $('.range .item.active').onclick ()
 })
 
 
 window.addEventListener ('scroll', () => {
 
     const introh1 = $('.intro h1')
+    const nickPosition = (window.scrollY + introh1.getBoundingClientRect().y) * 0.65 
 
-    if (window.scrollY > 900) {
+    if (window.scrollY > nickPosition) {
         
         introh1.style.opacity = '1'       
         introh1.style.animation = 'story-appear 0.4s ease-in-out'
@@ -169,3 +170,11 @@ window.addEventListener ('scroll', () => {
         introh1.style.animation = 'none'
     }
 })
+
+window.addEventListener('resize', () => {
+
+    for (const el of $$('.carousel-scroller')) {
+
+        el.scrollTo ({ left: el.scrollLeft })
+    }
+}) 
