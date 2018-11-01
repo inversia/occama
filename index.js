@@ -61,6 +61,8 @@ document.addEventListener ('DOMContentLoaded', () => {          // код вып
     }
 })
 
+// dadsdasad
+
 document.addEventListener ('DOMContentLoaded', () => {
 
   for (const s of $$('.scroller')) {
@@ -96,6 +98,8 @@ document.addEventListener ('DOMContentLoaded', () => {
   }
 
 })
+
+// dasdadads
 
 document.addEventListener ('DOMContentLoaded', () => {
 
