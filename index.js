@@ -176,9 +176,10 @@ window.addEventListener ('scroll', () => {
 })
 
 window.addEventListener('resize', () => {
-
+    
     for (const el of $$('.carousel-scroller')) {
 
         el.scrollTo ({ left: el.scrollLeft })
     }
+     
 }) 

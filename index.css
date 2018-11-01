@@ -150,17 +150,16 @@ h3 {
         margin-left:auto;
         border:solid 1px #504f4e52;
         border-radius:50vw;
-/*         line-height:0.9em; */
+        /*         line-height:0.9em; */
         padding:1.3em;
         color:black;
         background-color:#fefcf7;
-        box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.29);
         animation: pulse 2.0s ease-in-out alternate infinite;
     }
 
 
 .intro {
-    background-image:url(./art/scissors.jpg);
+    background-image:url(./art/newscissors.jpg);
     background-repeat:no-repeat;
     background-size:cover;
     /*background-position:0vw -9vw;*/
@@ -177,23 +176,21 @@ h3 {
 }
 
     .intro h1 {
-        top:37%;
+        top:43%;
         animation-fill-mode:forwards;
         animation-delay: 0.5s;
         opacity:0;
-        letter-spacing:0.07em;
+        letter-spacing:0.085em;
 /*         text-shadow: 0vw 0vw 0.4vw #000000db; */
-        text-shadow: 0vw 0vw 0.4vw #ffffffdb;
+        text-shadow: 0vw 0vw 2.4vw #fefcf7;
         text-transform:none;
         padding:2vw 7vw;
-/*         background-color:#07191878; */
-        background-color:#fefcf7eb;
+/*         background-color:#fefcf7eb; */
         text-align:center;
-/*         color:#fefcf7; */
         color:black;
-        font-size:2vw; 
+        font-size:5vw; 
         border-radius:180% 180% 390% 390%;
-        z-index:-1000000;
+        
     }
 
 
@@ -266,7 +263,7 @@ h3 {
 .prices {
     /* height:100%; */
     background-color:#fefcf7;
-    text-align:center;
+    /* text-align:center; */
     padding-bottom:5.2vw;
     border-radius:100% 100% 0 0;
     /*     box-shadow: inset 0px 60px 140px rgba(0, 0, 0, 0.83); */
@@ -456,44 +453,11 @@ h3 {
     top:-17vw;
     position:relative;
 }
-
-.cost-buttons {
-    height:15vw; 
-    display:flex;
-    width:70%; 
-    font-family:Philosopher;
-    background-color:#fefcf7;
-    margin-left:15%;
-}
-
-    .cost-buttons .m {
-        flex:1;
-        background-color:#000000;
-        color:#fefcf7;
-        font-size:3vw;
-        outline:none;
-        font-family:Philosopher;
-        border-radius:5vw;
-        margin:3vw 5vw;
-    }
-
-    .cost-buttons .w {
-        flex:1;
-/*         background-color:#e6ab9d; */
-        background-color:#fefcf7;
-        color:#000000;
-        font-size:3vw;
-        outline:none;
-        font-family:Philosopher;
-        border-radius:5vw;
-        margin:3vw 5vw;
-        
-    }
     
 .cost{
     display:flex;
     width:100%;
-    background-color:black;
+    background-color:#fefcf7;
     flex-direction:row;
     align-items:flex-start;
     overflow-x:auto;
@@ -501,11 +465,39 @@ h3 {
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
+    color: black;
 }
+
+    .cost-buttons {
+        height:15vw; 
+        display:flex;
+        width:70%; 
+        font-family:Philosopher;
+        background-color:#fefcf7;
+        margin-left:15%;
+    }
+
+        .cost-buttons button {
+            flex:1;
+            font-size:3vw;
+            outline:none;
+            font-family:Philosopher;
+            border-radius:5vw;
+            margin:3vw 5vw;
+            background-color:#fefcf7;
+            color:#000000;
+            padding:0;            
+        }
+
+        .cost-buttons button.m {
+            background-color:#000000;
+            color:#fefcf7;
+
+        }
 
     .cost .page {
         scroll-snap-align:center;
-        
+        background-color:#fefcf7;
     }
 
         .cost .page ul {
@@ -513,15 +505,21 @@ h3 {
         }
 
             .cost .page li {
-                color:#fefcf7;
                 text-align:center;
-                font-size:3vw;
+                font-size:2vw;
                 padding:0.5em 0em;
+            }
+
+            .cost .page li.unavailable {
+                opacity: 0.25;
+            }
+
+            .cost .page li.unavailable .price:after {
+                content: 'от 35 см.'
             }
 
                 .cost .page li .price {
                     display:block;
-/*                     color:#379a89; */
                     padding-top:1em;
                 }
 
@@ -530,7 +528,6 @@ h3 {
                     }
 
             .cost .page.woman li {
-                color: black;
             }
 
             .cost .page.woman span {
@@ -541,8 +538,7 @@ h3 {
 
     .cost .man {
         height:100%;
-        width:100%;
-        background-color:#000000;
+        width:100%;  
         flex:none;
 
     }
@@ -550,7 +546,6 @@ h3 {
     .cost .woman {
         width:100vw;
         height:100%;
-        background-color:#fefcf7;
         flex:none;
     }
 
@@ -692,7 +687,7 @@ h3 {
     
         .intro h1 {
 /*             background-color:#1412123b; */
-            top:38%;
+            top:60%;
             font-size:6vw;
             line-height:1.4em;
             letter-spacing:0.1em;
@@ -767,12 +762,12 @@ h3 {
         margin-left:0;
     }
 
-    .scroller:after {
-        box-shadow: none;
-        border-radius: 40%;
-        pointer-events:none;
-        background:linear-gradient(#00000000 0%,transparent 50%);
-    }
+        .scroller:after {
+            box-shadow: none;
+            border-radius: 40%;
+            pointer-events:none;
+            background:linear-gradient(#00000000 0%,transparent 50%);
+        }
 
         .scroller .item .text {
             text-align:center;
@@ -781,5 +776,20 @@ h3 {
             top: 0.5em;
             color:#fbfbf6;
         }
+
+
+    .cost .page li {
+        text-align:center;
+        padding:0.5em 0em;
+        font-size:6vw;
+    }
+
+    .cost-buttons {
+        height:16vw;
+    }
+
+    .range .item {
+        font-size:3.3vw;
+    }
 
 }
