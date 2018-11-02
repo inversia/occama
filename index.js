@@ -102,21 +102,10 @@ document.addEventListener ('DOMContentLoaded', () => {
 // dasdadads
 
 document.addEventListener ('DOMContentLoaded', () => {
-
-    const man   = $('.m')
+  
     const woman = $('.w')
+    const man   = $('.m')
     const cost  = $('.cost')
-
-    man.onclick = () => {
-
-        if (cost.scrollLeft > cost.offsetWidth * 0.2) {
-            
-            cost.scrollTo ({
-                left: 0,
-                behavior: 'smooth'
-            })
-        }
-    }
 
     woman.onclick = () => {
         
@@ -127,6 +116,17 @@ document.addEventListener ('DOMContentLoaded', () => {
                 behavior: 'smooth'
             })
         }        
+    }
+
+     man.onclick = () => {
+
+        if (cost.scrollLeft > cost.offsetWidth * 0.2) {
+            
+            cost.scrollTo ({
+                left: 0,
+                behavior: 'smooth'
+            })
+        }
     }
 
     woman.onclick ()
