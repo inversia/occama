@@ -338,12 +338,18 @@ h3 {
 
 .info-bar {
     height:25vw;
-    background-color:#000000;
+    background-color:black;
     display:flex;
     font-family:Rotis;
     cursor:pointer;
     margin-top:1.5vw;
+    
 }
+
+    .info-bar .icon:hover {
+/*         filter:opacity(80%); */
+        filter: hue-rotate(100deg);    
+    }
 
 
     .info-bar .icon {
@@ -361,6 +367,7 @@ h3 {
         font-size:2vw;
 /*         border: 2px solid #e83a82; */
     }
+
 
     .info-bar .phone{
         position:relative;
@@ -579,9 +586,12 @@ h3 {
             padding:0;            
         }
 
+
+
+
         .cost-buttons button.active {
             background-color:#000000;
-            color:#fefcf7;
+            color:#E91E63;
         }
 
         .cost-buttons button.m {       
