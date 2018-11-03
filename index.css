@@ -144,6 +144,10 @@ h3 {
 
     .menu a:hover {
         transform:scale(1.1);
+/*         color:#1e776a; */
+        color:#07796a;
+
+
     }
 
     .menu a.register {
@@ -162,7 +166,7 @@ h3 {
     background-image:url(./art/newscissors.jpg);
     background-repeat:no-repeat;
     background-size:cover;
-    /*background-position:0vw -9vw;*/
+    background-position: 50% 0;
     background-attachment:fixed;
     width:90vw;
     height:42vw;
@@ -172,7 +176,6 @@ h3 {
     transform:translate3d(0,0,0);
     position:relative;
     z-index:4;
-
 }
 
     .intro h1 {
@@ -353,6 +356,34 @@ h3 {
     overflow:hidden;
 }
 
+    .scroller .dots {
+        display:flex;
+        height:15vw;
+        position:absolute;
+        top:90%;
+        z-index:1;
+        flex-direction:row;
+        width:100%;
+        justify-content:center;
+    }
+
+        .scroller .dots div {
+            height:1.1vw;
+            width:1.1vw;
+            background-color: #075e528a;
+            border-radius:50%;
+            margin:0vw 0.5vw;
+            transform:scale(1);
+            cursor:pointer;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .scroller .dots div.active {
+            background-color: #cde6e38a;
+            transform:scale(1.35);
+        }
+
+
     .scroller h1 {
 
         color:#191919;
@@ -404,6 +435,7 @@ h3 {
         background:linear-gradient(#00000059 0%,transparent 50%)
     }
 
+
     .scroller-inner {
         overflow-x:auto;
         overflow-y:hidden;
@@ -413,6 +445,7 @@ h3 {
         display: flex;
         width:100%;
         height:100%;
+/*         position:relative; */
     }
 
         .scroller .item {
@@ -489,10 +522,12 @@ h3 {
             padding:0;            
         }
 
-        .cost-buttons button.m {
+        .cost-buttons button.active {
             background-color:#000000;
             color:#fefcf7;
+        }
 
+        .cost-buttons button.m {       
         }
 
     .cost .page {
@@ -578,7 +613,7 @@ h3 {
             height:100%;
             left:0;
             top:0;
-            background:#0000002e;
+            background:#cde6e38a;
             border-radius:100%;
             z-index:-1;
             transition:all 0.25s ease-in-out;
@@ -644,7 +679,7 @@ h3 {
 /* --------------------------------------------------------------*/
 
 
-@media (max-width: 700px) {
+@media (max-width: 500px) {
     
     .menu {
         display:inline-flex;

@@ -28,8 +28,6 @@ const $$ = document.querySelectorAll.bind (document)
 //     return el
 // }
 
-const currentPage = x => Math.floor((x.scrollLeft + x.offsetWidth) / x.offsetWidth)
-
 // const numPages = Math.floor(cost.scrollWidth / cost.offsetWidth)
 
 function scrollTo (hash) {
@@ -42,6 +40,8 @@ function scrollTo (hash) {
         block: 'start'
     })
 }
+
+//реализация плавного скролла
 
 document.addEventListener ('DOMContentLoaded', () => {          // код выполняющийся после загрузки DOM-дерева (содержимого document.body)
 
@@ -61,7 +61,7 @@ document.addEventListener ('DOMContentLoaded', () => {          // код вып
     }
 })
 
-// dadsdasad
+// реализация карусели и её прокрутки
 
 document.addEventListener ('DOMContentLoaded', () => {
 
@@ -96,10 +96,9 @@ document.addEventListener ('DOMContentLoaded', () => {
       }
     }
   }
-
 })
 
-// dasdadads
+// реализация кнопок выбора мужского и женского прайса
 
 document.addEventListener ('DOMContentLoaded', () => {
   
@@ -131,6 +130,8 @@ document.addEventListener ('DOMContentLoaded', () => {
 
     woman.onclick ()
 })
+
+// генерация цены в прейскуранте
 
 document.addEventListener ('DOMContentLoaded', () => {
 
@@ -183,3 +184,39 @@ window.addEventListener('resize', () => {
     }
      
 }) 
+
+// функция, которая рассчитывает количество точек/элментов, которое равно количеству страниц
+const numPages = el => Math.round (el.scrollWidth / el.offsetWidth)  
+
+// функция, вычисляющая текущую страницу
+const currentPage = el => Math.round((el.scrollLeft + el.offsetWidth) / el.offsetWidth)
+
+const scrollToPage = (el, index) => undefined
+
+function initScroller (scroller) {
+
+    const inner = scroller.querySelector ('.scroller-inner')
+    const dots  = scroller.querySelector ('.dots')
+    const n     = numPages (inner)
+
+    // создание точек прокрутки
+    for (let i = 0; i < n; i++){
+        
+        const dot = document.createElement ('DIV')
+
+        dot.onclick = () => scrollToPage (inner, i)
+        
+        dots.appendChild (dot)
+    }
+
+    inner.onscroll = () => dots.childNodes.forEach ((x, i) => x.classList.toggle ('active', i + 1 === currentPage (inner)))  
+}
+
+//детекция прокручивания страниц
+
+document.addEventListener ('DOMContentLoaded', () => {
+    
+
+    initScroller ($('.scroller'))
+    
+})
