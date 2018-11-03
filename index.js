@@ -219,4 +219,5 @@ document.addEventListener ('DOMContentLoaded', () => {
 
     initScroller ($('.scroller'))
     
+//     initScroller ($('.prices'))
 })
