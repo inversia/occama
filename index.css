@@ -178,33 +178,6 @@ h3 {
     z-index:4;
 }
 
-    .intro .dots {
-        display:flex;
-        height:15vw;
-        position:absolute;
-        top:90%;
-        z-index:1;
-        flex-direction:row;
-        width:100%;
-        justify-content:center;
-    }
-
-        .intro .dots div {
-            height:1.1vw;
-            width:1.1vw;
-            background-color: #075e528a;
-            border-radius:50%;
-            margin:0vw 0.5vw;
-            transform:scale(1);
-            cursor:pointer;
-            transition: all 0.25s ease-in-out;
-        }
-
-        .intro .dots div.active {
-            background-color: #cde6e38a;
-            transform:scale(1.35);
-        }
-
     .intro h1 {
         top:43%;
         animation-fill-mode:forwards;
@@ -290,52 +263,6 @@ h3 {
             box-shadow: inset 0px 20px 150px rgba(0, 0, 0, 0.56);
         }
 
-.prices {
-    /* height:100%; */
-    background-color:#fefcf7;
-    /* text-align:center; */
-    padding-bottom:5.2vw;
-    border-radius:100% 100% 0 0;
-    /*     box-shadow: inset 0px 60px 140px rgba(0, 0, 0, 0.83); */
-}
-
-    .prices .dots {
-        display:flex;
-        height:15vw;
-        position:absolute;
-        top:90%;
-        z-index:1;
-        flex-direction:row;
-        width:100%;
-        justify-content:center;
-        background-color:red;
-    }
-
-        .prices .dots div {
-            height:1.1vw;
-            width:1.1vw;
-            background-color: #075e528a;
-            border-radius:50%;
-            margin:0vw 0.5vw;
-            transform:scale(1);
-            cursor:pointer;
-            transition: all 0.25s ease-in-out;
-        }
-
-        .prices .dots div.active {
-            background-color: #cde6e38a;
-            transform:scale(1.35);
-        }
-
-    
-
-    .prices h1 {
-        color:black;
-        margin-top:7.4vw;
-        font-size:5vw;
-        padding-top:13vw;
-    }
-
 .info-bar {
     height:25vw;
     background-color:black;
@@ -420,7 +347,7 @@ h3 {
     overflow:hidden;
 }
 
-    .scroller .dots {
+    .scroller .pagination {
         display:flex;
         height:15vw;
         position:absolute;
@@ -431,7 +358,7 @@ h3 {
         justify-content:center;
     }
 
-        .scroller .dots div {
+        .scroller .pagination div {
             height:1.1vw;
             width:1.1vw;
             background-color: #075e528a;
@@ -442,7 +369,7 @@ h3 {
             transition: all 0.25s ease-in-out;
         }
 
-        .scroller .dots div.active {
+        .scroller .pagination div.active {
             background-color: #cde6e38a;
             transform:scale(1.35);
         }
@@ -546,6 +473,64 @@ h3 {
                 text-shadow: 0vw 0vw 0.5vw #000000ba;
             }
 
+
+.prices {
+}
+
+    .prices h1 {
+        background-color:#fefcf7;
+        border-radius:100% 100% 0 0;
+        padding-top:13vw;
+        padding-bottom:5.2vw;
+        color:black;
+        margin-top:7.4vw;
+        font-size:5vw;
+    }    
+
+    .prices .pagination {
+        height:15vw;
+        display:flex;
+        font-family:Philosopher;
+        background-color:#fefcf7;
+        padding: 0 13%;
+    }
+
+        .prices .pagination div {
+            flex:1;
+            font-size:3vw;
+            outline:none;
+            font-family:Philosopher;
+            border-radius:5vw;
+            margin:3vw 5vw;
+            background-color:#fefcf7;
+            color:#000000;
+            padding:0;
+            border:1px solid rgba(0,0,0,0.25);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            transition:all 0.25s ease-in-out;
+        }
+
+        .prices .pagination div:hover{
+
+            background-color:#cde6e38a;
+        }
+
+        .prices .pagination div:nth-child(1):before {
+            content: 'WOMAN'
+        }
+
+        .prices .pagination div:nth-child(2):before {
+            content: 'MAN'
+        }
+
+        .prices .pagination div.active {
+            background-color:#000000;
+            color:#fefcf7;
+        }
+
 #contacts {
     top:-17vw;
     position:relative;
@@ -564,38 +549,6 @@ h3 {
     overflow-scrolling: touch;
     color: black;
 }
-
-    .cost-buttons {
-        height:15vw; 
-        display:flex;
-        width:70%; 
-        font-family:Philosopher;
-        background-color:#f7fef8;
-        margin-left:15%;
-    }
-
-        .cost-buttons button {
-            flex:1;
-            font-size:3vw;
-            outline:none;
-            font-family:Philosopher;
-            border-radius:5vw;
-            margin:3vw 5vw;
-            background-color:#fefcf7;
-            color:#000000;
-            padding:0;            
-        }
-
-
-
-
-        .cost-buttons button.active {
-            background-color:#000000;
-            color:#E91E63;
-        }
-
-        .cost-buttons button.m {       
-        }
 
     .cost .page {
         scroll-snap-align:center;
@@ -636,13 +589,10 @@ h3 {
                 padding-bottom:1.1em;
             }
 
-
-
     .cost .man {
         height:100%;
         width:100%;  
         flex:none;
-
     }
 
     .cost .woman {

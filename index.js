@@ -193,10 +193,10 @@ const currentPage = el => Math.round((el.scrollLeft + el.offsetWidth) / el.offse
 
 const scrollToPage = (el, index) => undefined
 
-function initScroller (scroller) {
+function initScroller (el) {
 
-    const inner = scroller.querySelector ('.scroller-inner')
-    const dots  = scroller.querySelector ('.dots')
+    const inner = el.querySelector ('.scroller-inner')
+    const dots  = el.querySelector ('.pagination')
     const n     = numPages (inner)
 
     // создание точек прокрутки
@@ -204,20 +204,21 @@ function initScroller (scroller) {
         
         const dot = document.createElement ('DIV')
 
-        dot.onclick = () => scrollToPage (inner, i)
+//         dot.onclick = () => scrollToPage (inner, i)
         
         dots.appendChild (dot)
     }
 
     inner.onscroll = () => dots.childNodes.forEach ((x, i) => x.classList.toggle ('active', i + 1 === currentPage (inner)))  
+
+    inner.onscroll ()
 }
 
 //детекция прокручивания страниц
 
 document.addEventListener ('DOMContentLoaded', () => {
     
-
     initScroller ($('.scroller'))
     
-//     initScroller ($('.prices'))
+    initScroller ($('.prices'))
 })
