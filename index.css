@@ -570,7 +570,7 @@ h3 {
             }
 
             .cost .page li.unavailable .price:after {
-                content: 'от 35 см.'
+                content: 'недоступно для выбранной длины'
             }
 
                 .cost .page li .price {

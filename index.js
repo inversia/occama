@@ -106,29 +106,30 @@ document.addEventListener ('DOMContentLoaded', () => {
     const man   = $('.m')
     const cost  = $('.cost')
 
-    woman.onclick = () => {
+//     woman.onclick = () => {
         
-        if (cost.scrollLeft < cost.offsetWidth * 0.6) {
+//         if (cost.scrollLeft < cost.offsetWidth * 0.6) {
             
-            cost.scrollTo ({
-                left: cost.offsetWidth,
-                behavior: 'smooth'
-            })
-        }        
-    }
+//             cost.scrollTo ({
+//                 left: cost.offsetWidth,
+//                 behavior: 'smooth'
+//             })
+//         }        
+//     }
 
-     man.onclick = () => {
+//      man.onclick = () => {
 
-        if (cost.scrollLeft > cost.offsetWidth * 0.2) {
+//         if (cost.scrollLeft > cost.offsetWidth * 0.2) {
             
-            cost.scrollTo ({
-                left: 0,
-                behavior: 'smooth'
-            })
-        }
-    }
+//             cost.scrollTo ({
+//                 left: 0,
+//                 behavior: 'smooth'
+//             })
+//         }
+//     }
 
-    woman.onclick ()
+
+    
 })
 
 // генерация цены в прейскуранте
@@ -146,14 +147,13 @@ document.addEventListener ('DOMContentLoaded', () => {
 
             }
 
-            for (const price of $$('.page.woman li .price')) {
+            for (const priceEl of $$('.page.woman li .price')) {
 
-                price.innerText = price.dataset[item.dataset.size]
+                const price = priceEl.dataset[item.dataset.size]
+
+                priceEl.parentNode.classList.toggle ('unavailable', !price)
+                priceEl.innerText = price
             }
-
-
-//             li.style.display = price ? '' : 'none'
-//             li.innerText     = price + ' р.'
         }
     }
 
