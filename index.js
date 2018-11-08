@@ -191,7 +191,13 @@ const numPages = el => Math.round (el.scrollWidth / el.offsetWidth)
 // функция, вычисляющая текущую страницу
 const currentPage = el => Math.round((el.scrollLeft + el.offsetWidth) / el.offsetWidth)
 
-const scrollToPage = (el, index) => undefined
+function scrollToPage (el, index) {
+    
+    el.scrollTo ({
+        left: el.offsetWidth * index,
+        behavior: 'smooth'
+    })
+} 
 
 function initScroller (el) {
 
@@ -204,7 +210,7 @@ function initScroller (el) {
         
         const dot = document.createElement ('DIV')
 
-//         dot.onclick = () => scrollToPage (inner, i)
+        dot.onclick = () => scrollToPage (inner, i)
         
         dots.appendChild (dot)
     }
