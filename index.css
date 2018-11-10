@@ -155,7 +155,7 @@ h3 {
         border:solid 1px #504f4e52;
         border-radius:50vw;
         /*         line-height:0.9em; */
-        padding:1.3em;
+        padding:1.3em 1.3em 1.2em 1.3em;
         color:black;
         background-color:#fefcf7;
         animation: pulse 2.0s ease-in-out alternate infinite;
