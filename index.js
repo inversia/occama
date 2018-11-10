@@ -224,7 +224,10 @@ function initScroller (el) {
 
 document.addEventListener ('DOMContentLoaded', () => {
     
-    initScroller ($('.scroller'))
-    
-    initScroller ($('.prices'))
+    setTimeout (() => {
+
+        initScroller ($('.scroller'))
+
+        initScroller ($('.prices'))
+    })
 })
