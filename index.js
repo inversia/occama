@@ -186,7 +186,7 @@ window.addEventListener('resize', () => {
 }) 
 
 // функция, которая рассчитывает количество точек/элментов, которое равно количеству страниц
-const numPages = el => Math.round (el.scrollWidth / el.offsetWidth)  
+const numPages = el => el.children.length //Math.round (el.scrollWidth / el.offsetWidth)  
 
 // функция, вычисляющая текущую страницу
 const currentPage = el => Math.round((el.scrollLeft + el.offsetWidth) / el.offsetWidth)
