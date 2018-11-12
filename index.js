@@ -191,13 +191,13 @@ const numPages = el => Math.round (el.scrollWidth / el.offsetWidth)
 // функция, вычисляющая текущую страницу
 const currentPage = el => Math.round((el.scrollLeft + el.offsetWidth) / el.offsetWidth)
 
-function scrollToPage (el, index) {
+const scrollToPage = (el, index) => 
     
     el.scrollTo ({
         left: el.offsetWidth * index,
         behavior: 'smooth'
     })
-} 
+ 
 
 function initScroller (el) {
 
