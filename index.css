@@ -847,6 +847,12 @@ h3 {
             background:linear-gradient(#00000000 0%,transparent 50%);
         }
 
+        .scroller .pagination div {
+            height:2vw;
+            width:2vw;
+            margin:0vw 1vw;
+        }
+
         .scroller .item .text {
             text-align:center;
             font-size:10vw;
