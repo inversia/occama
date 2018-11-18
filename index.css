@@ -87,12 +87,15 @@ h3 {
     font-size:1.4vw;
     letter-spacing:0.02em;
     position:relative;
+    perspective:400px;
+    z-index:1;
 }
 
     .logo {
         background-image:url(./art/logooccama.svg);
         background-repeat:no-repeat;
         background-size:100%;
+        background-position:center;
         height:17vw;
         width:17vw;
         position:absolute;
@@ -103,8 +106,10 @@ h3 {
         margin-top:4vw;
         transition:all 0.75s ease-in-out;
         transition-property:transform, opacity, border-radius, box-shadow, background-color;
-        transform:rotateY(0deg);
+        transform:rotate3d(0,1,0,0deg);
         font-family:OccamRazor;
+        border-radius:100%;
+
     }
 
     .logo:before {
@@ -122,10 +127,9 @@ h3 {
     }
 
     .logo:hover {
-        transform:rotateY(180deg);
+        transform:rotate3d(0,1,0,180deg);
         /*filter: invert(100%);*/
         background-color:#fefcf7;
-        border-radius:100%;
         display:inline-block;
         box-shadow: inset 0vw 0vw 5vw rgba(0, 0, 0, 0.63)
         
@@ -275,7 +279,7 @@ h3 {
 
     .info-bar .icon:hover {
 /*         filter:opacity(80%); */
-        filter: hue-rotate(100deg);    
+
     }
 
 
@@ -332,8 +336,8 @@ h3 {
         background-image:url(./art/vk.svg);
     }
 
-    .info-bar .fb{
-        background-image:url(./art/fb.svg);
+    .info-bar .face{
+        background-image:url(./art/face.svg);
     }
 
 
@@ -557,7 +561,7 @@ h3 {
     }
 
         .cost .page ul {
-            padding-top:10vw;
+            padding-top:5vw;
         }
 
             .cost .page li {
@@ -726,6 +730,7 @@ h3 {
     .menu {
         display:inline-flex;
         flex-direction:column;
+        margin-top:5vw;
         padding:50vw 0vw;
         height:77vw;
         font-size:8.4vw;
@@ -800,6 +805,10 @@ h3 {
         height:auto;
         display:block;   
     }
+
+        .info-bar .phone{
+            perspective:50vw;
+        }
 
         .info-bar .icon {
             display:block;
