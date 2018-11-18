@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <title>Occam's razer</title>
+    <script src="smoothscroll.min.js"></script>
     <script src="index.js"></script>
     <link rel="stylesheet" href="reset.css"></link>
     <link rel="stylesheet" href="index.css"></link>
@@ -13,19 +14,19 @@
     <meta name="description" content="Парикмахерская стрижки стилист">
     <meta name="title" content="OCCAM'S RAZOR">
 
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-128.png" sizes="128x128" />
     <meta name="application-name" content="OCCAM'S RAZOR"/>
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png" />
@@ -100,8 +101,8 @@
         <h1></h1>
     </div>
     <div class="info-bar">
-        <div class="icon phone">+ 375 29 373 666 9</div>
         <a href="https://www.google.ru/maps/place/Ulitsa+Kosmonavtov+42,+Minsk,+Belarus/@53.8480441,27.4515819,17z/data=!3m1!4b1!4m5!3m4!1s0x46dbda78202dbb5f:0xac27a1e8bc492d15!8m2!3d53.8480441!4d27.4537706" class="icon adress">Космонавтов 42, Минск</a>
+        <div class="icon phone" id="registerContacts">+ 375 29 373 666 9</div>
         <div class="icon time">10:00 - 21:00 пн-сб</div>
     </div>
 <!--     <div id="prices" class="prices">
@@ -121,7 +122,7 @@
                     <div class="item twentyfive" data-size="25">25 см</div>
                     <div class="item thirtyfive active" data-size="35">35 см</div>
                     <div class="item fourtyfive" data-size="45">45 см</div>
-                    <div class="item more" data-size="gt45">&gt; 45 см </div>
+                    <div class="item more" data-size="gt45">&gt; 45 см</div>
                 </div>
                 <ul>
                     <li>Стрижка женская <span class="price" data-lt15="22" data-25="26" data-35="30" data-45="34" data-gt45="38"></span></li>

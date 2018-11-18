@@ -4,8 +4,8 @@
 }
 
 @keyframes oborot {
-    0%   {transform:rotateY(0deg);}
-    100% {transform:rotateY(360deg);}
+    0%   {transform:rotate3d(0,1,0,0);}
+    100% {transform:rotate3d(0,1,0,360deg);}
 }
 
 @keyframes story-appear {
@@ -298,7 +298,7 @@ h3 {
 
     .info-bar .phone{
         position:relative;
-
+        perspective:19vw;
     }
 
         .info-bar .phone:before {
@@ -306,7 +306,7 @@ h3 {
             content:'';
             background-image:url(./art/phone.svg);
             position:absolute;
-            animation: oborot 2.0s cubic-bezier(0.4, 0, 1, 1) alternate infinite;
+            animation: oborot 2.0s cubic-bezier(0.39, 0.54, 0.73, 0.64) infinite;
             background-repeat:no-repeat;
             background-position:50% 30%;
             background-size:25%;
@@ -553,6 +553,7 @@ h3 {
     .cost .page {
         scroll-snap-align:center;
         background-color:#fefcf7;
+        margin-bottom:7vw;
     }
 
         .cost .page ul {
@@ -606,10 +607,14 @@ h3 {
     text-align:center;
 }
 
+    .range, .range * {
+        user-select: none;
+    }
+
     .range .item {
         height:4em;
         width:4em;
-        margin:0 0.5em;
+        margin:1.1em 0.5em;
         padding:0;
         border-radius:100%;
         display:inline-flex;
@@ -623,7 +628,19 @@ h3 {
         line-height:0;
     }
 
-        .range .item:before {
+    .range .item .hover-circle {
+        position:absolute;
+        width:100%;
+        height:100%;
+        left:0;
+        top:0;
+        background:#cde6e38a;
+        border-radius:100%;
+        z-index:-1;
+        opacity:0;
+    }
+
+/*         .range .item:before {
             content:'';
             position:absolute;
             width:100%;
@@ -633,24 +650,32 @@ h3 {
             background:#cde6e38a;
             border-radius:100%;
             z-index:-1;
-            transition:all 0.25s ease-in-out;
-        }
+            
+        } */
 
-        .range .item:not(.active):before {
+/*         .range .item:not(.active):before {
             transform:scale(0);
         }
 
         .range .item:hover:not(.active):before {
             transform:scale(1);
-        }
+        } */
+
+/*     .range .item.active {
+        color:#fefcf7;
+        background:black;
+        border-radius:100%;
+    } */
 
     .range .item.active {
-        color:#fefcf7;
+        color: #fefcf7;
     }
-
-        .range .item.active:before {
-            background:black;
-        }
+    .range .item.active .hover-circle {
+        background:black;
+        opacity:1 !important;
+        transform:scale(1) !important;
+        transition:transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    }
 
 
 /*             .cost .woman .range .fifteen {
@@ -845,3 +870,9 @@ h3 {
     }
 
 }
+
+@media (hover: hover) { 
+
+/*     тут засунуть все, что по ховеру */
+
+ }

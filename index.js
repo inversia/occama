@@ -1,18 +1,93 @@
 'use strict'
 
+const { keys, values, entries, assign } = Object
+const $  = document.querySelector.bind (document)
+const $$ = document.querySelectorAll.bind (document)
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|CriOS/i.test(navigator.userAgent)
+
 document.addEventListener ('DOMContentLoaded', () => {
-
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|CriOS/i.test(navigator.userAgent)
-
     if (isMobile || window.innerWidth < 500) {
-
         document.body.classList.add ('mobile')
     }
 })
 
-const { keys, values, entries, assign } = Object
-const $  = document.querySelector.bind (document)
-const $$ = document.querySelectorAll.bind (document)
+function Vec2 (x, y) {
+
+    const self = {
+
+        x, y,
+
+        add: b => Vec2 (x + b.x, y + b.y),
+
+        sub: b => self.add (b.negative ()),
+
+        distance: b => self.sub (b).length (),
+
+        scale: s => Vec2 (x * s, y * s),
+
+        negative: () => Vec2 (-x, -y),
+
+        length: () => Math.sqrt (x * x + y * y),
+
+        normalize: () => self.scale (1.0 / self.length ()),
+
+        rescale: l => self.normalize ().scale (l),
+
+        toString: () => `Vec2(${x}, ${y})`
+    }
+
+    return self
+}
+
+function rescale (x, from, to, exponent=1) {
+
+    const t = (x - from[0]) / (from[1] - from[0])
+    return to[0] + ((to[1] - to[0]) * (t ** exponent))
+} 
+
+function initSmoothHover (container, { flashlightMode = false } = {}) {
+
+    for (const item of container.children) {
+        const circle = document.createElement ('DIV')
+        circle.classList.add ('hover-circle')
+        item.appendChild (circle)
+    }
+
+    document.addEventListener ('mousemove', e => {
+
+        const mouse = Vec2 (e.clientX, e.clientY) // двумерный вектор, являющийся текущим положение мыши
+      
+        for (const item of container.children){
+
+            let circle = item.children[0]
+
+            const rect    = item.getBoundingClientRect ()
+            const leftTop = Vec2 (rect.left, rect.top)
+            const size    = Vec2 (rect.width, rect.height)
+            const center  = leftTop.add (size.scale (0.5))
+
+            const distanceToCenter = mouse.distance (center)
+
+            const opacity = rescale (distanceToCenter, [0, rect.width], [1, 0], 1.3)
+            const scale   = rescale (distanceToCenter, [0, rect.width], [1.2, 1], 0.9)
+            const active = $('.active')
+            
+            if (flashlightMode) {
+
+                const gradCenter = mouse.sub (leftTop)
+                const color = `rgb(255,155,155) 0, rgba(255,155,155,0.5) ${rect.width}px, transparent ${rect.width * 5}px`
+
+                circle.style.backgroundColor = 'transparent'
+                circle.style.backgroundImage = `radial-gradient(circle at ${gradCenter.x.toFixed (2)}px ${gradCenter.y.toFixed (2)}px, ${color})`
+
+            } else {
+
+                circle.style.opacity   = opacity
+                circle.style.transform = `scale(${scale})`
+            }
+        }
+    })
+}
 
 // function element (tag, { className = '', innerText = '', style = {}, children = [] } = {}) {
     
@@ -30,9 +105,11 @@ const $$ = document.querySelectorAll.bind (document)
 
 // const numPages = Math.floor(cost.scrollWidth / cost.offsetWidth)
 
-function scrollTo (hash) {
+function scrollTo (arg) {
 
-    const target = document.querySelector (hash)
+    const target = typeof arg === 'string'
+                        ? document.querySelector (arg)
+                        : arg
     
     target.scrollIntoView ({
         
@@ -47,15 +124,23 @@ document.addEventListener ('DOMContentLoaded', () => {          // код вып
 
     for (const link of document.querySelectorAll ('.link')) {   // для каждого элемента с селектором .link
 
-        link.addEventListener ('click', x => {
+        link.addEventListener ('click', e => {
 
             const href = link.getAttribute ('href')              // <a href="/#services"> → /#services
             const hash = href.replace ('/', '')                  // /#services → #services
 
-            if (document.querySelector (hash)) {                 // есть ли на странице элемент отзывающийся на селектор #services
+            if (link.classList.contains ('register')) {
+
+                if(!isMobile){
+                    e.preventDefault()
+                    scrollTo ('#registerContacts')
+                }
+
+            } else if (document.querySelector (hash)) { 
+                            // есть ли на странице элемент отзывающийся на селектор #services
                 history.pushState (null, null, hash)             // заменяем в адресной строке адрес на /#services (но так, чтобы страница не прыгала к этому элементу)
                 scrollTo (hash)                                  // плавно прокручиваем страницу к #services
-                x.preventDefault ()                              // предотвращаем дефолтное поведение клика на ссылку (чтобы страница не прыгала к #services)
+                e.preventDefault ()                              // предотвращаем дефолтное поведение клика на ссылку (чтобы страница не прыгала к #services)
             }
         })
     }
@@ -230,4 +315,8 @@ document.addEventListener ('DOMContentLoaded', () => {
 
         initScroller ($('.prices'))
     })
+
+    initSmoothHover ($('.range'))
 })
+
+
