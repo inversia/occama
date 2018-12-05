@@ -33,16 +33,14 @@ body {
 }
 
     body .company {
-        color:#000000;
+        color:#00000085;
 /*         background-color:#e9f2ee; */
         background-color:#fefcf7;
         height:5vw;
-        width:100%;
         display:flex;
         justify-content:center;
         font-size:1vw;
         align-items:center;
-
     }
 
 ::selection{
@@ -736,6 +734,11 @@ h3 {
 
 
 @media (max-width: 500px) {
+
+    body .company {
+        font-size:3vw;
+        padding:6vw 0;
+    }
     
     .menu {
         display:inline-flex;
