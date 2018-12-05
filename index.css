@@ -32,6 +32,19 @@ body {
     font-family:Philosopher;
 }
 
+    body .company {
+        color:#000000;
+/*         background-color:#e9f2ee; */
+        background-color:#fefcf7;
+        height:5vw;
+        width:100%;
+        display:flex;
+        justify-content:center;
+        font-size:1vw;
+        align-items:center;
+
+    }
+
 ::selection{
     background:#009688;
     color:#fefcf7;
